@@ -13,7 +13,7 @@ let newPage = false
 
 // Pega o valor do id do usuário pela URL: http://Localhost8080//formularios/form_cadastro_pagamento/index.html?id=1
 const urlParams = new URLSearchParams(window.location.search);
-const idRegisterUser = urlParams.get('id');
+const idRegisterUser = urlParams.get('id')
 
 const automationPage = async (id) => {
   const idUser = Number(id);

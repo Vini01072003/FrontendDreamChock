@@ -1,12 +1,12 @@
 import {verificarConta} from './end_point_entrar-conta.js'
-const form = document.getElementById("form");
+const form = document.getElementById("acessarConta");
 // const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 //const passwordConfirmation = document.getElementById("password-confirmation");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+form.addEventListener("click", () => {
+ event.preventDefault()
 
   checkInputs();
 });
@@ -16,6 +16,7 @@ const usuario = async (dadosJson) => {
   const statusDaConta = await verificarConta(dadosJson)
   console.log(statusDaConta)
   if(statusDaConta.status == 201){
+    localStorage.setItem('email', email)
     const idRegisterUser = statusDaConta.id_register_user
     window.location.href = `../../formularios/form_cadastro_pagamento/index.html?id=${idRegisterUser}`
   }
