@@ -157,7 +157,7 @@ const automationPage = async (id) => {
 
 button.addEventListener('click', function () {
   if(newPage == true){
-    window.open(`../../formularios/form_pagamento/index.html?id=${idDataPersonal}`, '_blank');
+    window.open(`../../formularios/form_pagamento/index.html?id=${idDataPersonal}&id_register_user=${idRegisterUser}`, '_blank');
     window.close('index.html');
   }
 });

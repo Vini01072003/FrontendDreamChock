@@ -15,7 +15,6 @@ form.addEventListener("click", () => {
 const usuario = async (dadosJson) => {
 
   const statusDaConta = await verificarConta(dadosJson)
-  console.log(statusDaConta)
   if (statusDaConta.status == 201) {
     localStorage.setItem('email', email.value)
     const idRegisterUser = statusDaConta.id_register_user

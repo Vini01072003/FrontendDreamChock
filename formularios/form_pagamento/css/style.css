@@ -61,6 +61,31 @@
     background-size: 500% 100%;
     animation: Document 3s infinite alternate;
 }
+
+.sucesso {
+    position: absolute;
+    color: green;
+    font-weight: bold;
+    background-color: #eaf7e3;
+    padding: 10px;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .erro {
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    background-color: #f7e3e3;
+    padding: 10px;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
 @keyframes Document {
     0% {
         background-position-x: 0%;
