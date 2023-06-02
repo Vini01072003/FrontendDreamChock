@@ -1,24 +1,35 @@
-import {verificarConta} from './end_point_entrar-conta.js'
+import { verificarConta } from './end_point_entrar-conta.js'
 const form = document.getElementById("acessarConta");
+const createCount = document.getElementById("criarConta")
 // const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 //const passwordConfirmation = document.getElementById("password-confirmation");
 
 form.addEventListener("click", () => {
- event.preventDefault()
+  event.preventDefault()
 
   checkInputs();
 });
 
 const usuario = async (dadosJson) => {
-  
+
   const statusDaConta = await verificarConta(dadosJson)
   console.log(statusDaConta)
-  if(statusDaConta.status == 201){
-    localStorage.setItem('email', email)
+  if (statusDaConta.status == 201) {
+    localStorage.setItem('email', email.value)
     const idRegisterUser = statusDaConta.id_register_user
     window.location.href = `../../formularios/form_cadastro_pagamento/index.html?id=${idRegisterUser}`
+  } else {
+    const mensagemErro = document.createElement('p');
+    mensagemErro.textContent = 'Senha ou email incorretos';
+    mensagemErro.classList.add('erro'); // Adiciona a classe CSS 'erro'
+    document.body.appendChild(mensagemErro);
+
+    setTimeout(() => {
+      mensagemErro.remove();
+    }, 3000); // Remover a mensagem após 3 segundos (3000 milissegundos)
+
   }
 }
 
@@ -88,6 +99,10 @@ function checkEmail(email) {
     email
   );
 }
+
+createCount.addEventListener("click", function(){
+  window.location.href = "../../formularios/form_criar_conta/index.html" 
+})
 
 
 
